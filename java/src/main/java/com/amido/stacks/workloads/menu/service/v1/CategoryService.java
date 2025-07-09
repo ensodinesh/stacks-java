@@ -8,12 +8,16 @@ import jakarta.validation.Valid;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 @RequiredArgsConstructor
 public class CategoryService {
 
+  private static final Logger logger = LoggerFactory.getLogger(CategoryService.class);
   public ResourceCreatedResponse create(@Valid CreateCategoryRequest body, String correlationId) {
+    logger.info("category service create method called");
     return new ResourceCreatedResponse(UUID.randomUUID());
   }
 
